@@ -1,5 +1,5 @@
 
-const URL_API_BASE = import.meta.env.VITE_BACKEND_URL_BASE
+export const URL_API_BASE = import.meta.env.VITE_BACKEND_URL_BASE
 
 export const URL_API_SEGURIDAD=`${URL_API_BASE}/seguridad`;
 export const URL_API_USUARIO=`${URL_API_BASE}/usuario`;
