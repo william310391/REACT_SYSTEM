@@ -1,43 +1,7 @@
 import { useState } from "react";
 import { FindUsuarioByNombreCuenta } from "../../api/ApiUsuario";
 import DataTable from "../ElementoControl/DataTable";
-
-const menu = (dato) => {
-  return (
-    <div className="btn-group">
-      <i
-        className="bi bi-gear-wide"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      ></i>
-      <ul className="dropdown-menu dropdown-menu-end">
-        <li>
-          <a className="dropdown-item" href="#">
-            Action {dato.id}
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Something else here
-          </a>
-        </li>
-        <li>
-          <hr className="dropdown-divider" />
-        </li>
-        <li>
-          <a className="dropdown-item" href="#">
-            Separated link
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
-};
+import _ContextMenuBuscarPersona from "./_ContextMenuBuscarPersona";
 
 function GestionUsuario() {
 
@@ -71,30 +35,10 @@ function GestionUsuario() {
     let buscar = document.getElementById("buscadorUsuario").value;
     let res = await obtenerData(buscar);
     let new_array = res.map((ele) => {
-      return { ...ele, action: menu({ id: 11111 }) };
+      return { ...ele, action: _ContextMenuBuscarPersona({ id: 11111 }) };
     });
     setData(new_array);
   };
-  // handleClickBuscar();
-
-  // data2()
-
-  // const columns = [
-  //   { Header: "ID", DataField: "id", width: "8%" },
-  //   { Header: "DNI", DataField: "dni", width: "10%" },
-  //   { Header: "Name", DataField: "name", width: "60%" },
-  //   { Header: "Age", DataField: "age", width: "10%" },
-  //   { Header: "", DataField: "action", width: "2%" },
-  // ];
-  // const data = [
-  //   { id: 1, name: "John Doe", age: 25, dni: "70908379" },
-  //   { id: 2, name: "Jane Smith", age: 30, dni: "70908378" },
-  //   { id: 2, name: "Jane Salas", age: 10, dni: "70908377" },
-  // ];
-  // //data.map(obj => ( { ...obj, action: menu({ id: 11111 }) }))
-  // let new_array = data.map((ele) => {
-  //   return { ...ele, action: menu({ id: 11111 }) };
-  // });
 
   return (
     <>
